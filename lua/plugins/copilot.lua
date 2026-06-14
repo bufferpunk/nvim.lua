@@ -102,7 +102,7 @@ return {
         end
       end
       vim.keymap.set("i", "<C-c>", clearCopilotSuggestion, { desc = "Clear Copilot suggestion or fallback" })
-      vim.keymap.set("n", "<Esc>", clearCopilotSuggestion, { desc = "Clear Copilot suggestion or fallback" })
+      vim.keymap.set("n", "<esc>", clearCopilotSuggestion, { desc = "Clear Copilot suggestion or fallback" })
     end,
   },
 }
