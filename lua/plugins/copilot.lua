@@ -97,12 +97,14 @@ return {
 
       -- Clear copilot suggestion with Esc if visible, otherwise preserve default Esc behavior
       local function clearCopilotSuggestion()
-        if not require("copilot-lsp.nes").clear() then
-          -- fallback to other functionality
+        if require("copilot-lsp.nes").clear() then
+          return nil
+        else
+          return "<esc>"
         end
       end
       vim.keymap.set("i", "<C-c>", clearCopilotSuggestion, { desc = "Clear Copilot suggestion or fallback" })
-      vim.keymap.set("n", "<esc>", clearCopilotSuggestion, { desc = "Clear Copilot suggestion or fallback" })
+      vim.keymap.set("n", "<C-c>", clearCopilotSuggestion, { desc = "Clear Copilot suggestion or fallback" })
     end,
   },
 }
